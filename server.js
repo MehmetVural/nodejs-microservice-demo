@@ -95,7 +95,7 @@ app.get('/', function (req, res) {
 });
 */
 app.get('/', function(req, res){
-  res.send("Server is up! 1.0");
+  res.send("Server is up! 1.1");
 });
 
 app.get('/pagecount', function (req, res) {
