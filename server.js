@@ -21,7 +21,7 @@ const testController = require('./controller/test-controller.js');
 app.use('/test', testController);
 
 app.get('/', function (req, res) {
-  res.send("Server is up!");
+  res.send("Server is up! 1.0");
 });
 
 app.listen(port, ip);
