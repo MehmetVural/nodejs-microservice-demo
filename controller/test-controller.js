@@ -8,7 +8,7 @@ router.get('/anonymous', function(req, res){
 });
 
 
-router.get('/user', keycloak.protect('user'), function(req, res){
+router.get('/user', function(req, res){
     res.send("Hello User");
 });
 
