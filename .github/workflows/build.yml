@@ -17,5 +17,5 @@ jobs:
         #parameters: '{"username": "${{ secrets.USERNAME }}", "password": "${{ secrets.PASSWORD }}", "acceptUntrustedCerts": "true"}'
         cmd: |
           'version'
-          'start-build nodejs-mongo-persistent-1 --follow'
+          'start-build nodejs-mongo-persistent --follow'
           'status'
