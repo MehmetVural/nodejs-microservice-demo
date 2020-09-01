@@ -126,8 +126,8 @@ initDb(function(err){
 const testController = require('./controller/test-controller.js');
 app.use('/test', testController);
 
-//const keycloak = require('./config/keycloak-config.js').initKeycloak();
-//app.use(keycloak.middleware());
+const keycloak = require('./config/keycloak-config.js').initKeycloak();
+app.use(keycloak.middleware());
 
 app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
