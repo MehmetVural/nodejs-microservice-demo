@@ -72,7 +72,7 @@ var initDb = function(callback) {
     console.log('Connected to MongoDB at: %s', mongoURL);
   });
 };
-
+/*
 app.get('/', function (req, res) {
   // try to initialize the db on every request if it's not already
   // initialized.
@@ -92,6 +92,10 @@ app.get('/', function (req, res) {
   } else {
     res.render('index.html', { pageCountMessage : null});
   }
+});
+*/
+app.get('/', function(req, res){
+  res.send("Server is up!");
 });
 
 app.get('/pagecount', function (req, res) {
