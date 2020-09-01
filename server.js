@@ -95,7 +95,7 @@ app.get('/', function (req, res) {
 });
 */
 app.get('/', function(req, res){
-  res.send("Server is up! 1.3");
+  res.send("Server is up! 1.4");
 });
 
 app.get('/pagecount', function (req, res) {
@@ -123,11 +123,12 @@ initDb(function(err){
   console.log('Error connecting to Mongo. Message:\n'+err);
 });
 
+const testController = require('./controller/test-controller.js');
+app.use('/test', testController);
+
 const keycloak = require('./config/keycloak-config.js').initKeycloak();
 app.use(keycloak.middleware());
 
-const testController = require('./controller/test-controller.js');
-app.use('/test', testController);
 
 app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
