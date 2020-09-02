@@ -6,7 +6,7 @@ let _keycloak;
 var keycloakConfig = {
     clientId: 'workbc-microservice',
     bearerOnly: true,
-    serverUrl: 'http://keycloak-http-my-workbc.apps.us-west-1.starter.openshift-online.com/auth ',
+    serverUrl: 'http://keycloak-http-my-workbc.apps.us-west-1.starter.openshift-online.com/auth',
     realm: 'WorkBC',
     credentials: {
         secret: '8d67fc9c-ddde-4b49-a78d-466279a10fdb'

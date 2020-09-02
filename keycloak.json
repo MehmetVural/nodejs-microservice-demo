@@ -1,0 +1,7 @@
+{
+    "realm": "WorkBC",
+    "bearer-only": true,
+    "auth-server-url": "http://keycloak-http-my-workbc.apps.us-west-1.starter.openshift-online.com/auth",
+    "ssl-required": "none",
+    "resource": "workbc-microservice"
+  }

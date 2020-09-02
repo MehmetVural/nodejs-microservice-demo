@@ -1,30 +1,58 @@
-//  OpenShift sample Node application
-var express = require('express'),
-  app = express(),
-  morgan = require('morgan');
+var express = require('express');
+var session = require('express-session');
+var bodyParser = require('body-parser');
+var Keycloak = require('keycloak-connect');
+var cors = require('cors');
 
-Object.assign = require('object-assign')
+var app = express();
+app.use(bodyParser.json());
 
-//app.engine('html', require('ejs').renderFile);
-//app.use(morgan('combined'))
+// Enable CORS support
+app.use(cors());
 
-var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
-  ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
-  mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
-  mongoURLLabel = "";
+// Create a session-store to be used by both the express-session
+// middleware and the keycloak middleware.
 
+var memoryStore = new session.MemoryStore();
 
-const keycloak = require('./config/keycloak-config.js').initKeycloak();
-app.use(keycloak.middleware());
+app.use(session({
+  secret: '8d67fc9c-ddde-4b49-a78d-466279a10fdb',
+  resave: false,
+  saveUninitialized: true,
+  store: memoryStore
+}));
 
-const testController = require('./controller/test-controller.js');
-app.use('/test', testController);
+// Provide the session store to the Keycloak so that sessions
+// can be invalidated from the Keycloak console callback.
+//
+// Additional configuration is read from keycloak.json file
+// installed from the Keycloak web console.
 
-app.get('/', function (req, res) {
-  res.send("Server is up! 1.0");
+var keycloak = new Keycloak({
+  store: memoryStore
 });
 
-app.listen(port, ip);
-console.log('Server running on http://%s:%s', ip, port);
+app.use(keycloak.middleware({
+  logout: '/logout',
+  admin: '/'
+}));
 
-//module.exports = app;
+app.get('/service/public', function (req, res) {
+  res.json({message: 'public'});
+});
+
+app.get('/service/secured', keycloak.protect('realm:user'), function (req, res) {
+  res.json({message: 'secured'});
+});
+
+app.get('/service/admin', keycloak.protect('realm:admin'), function (req, res) {
+  res.json({message: 'admin'});
+});
+
+app.use('*', function (req, res) {
+  res.send('Not found!');
+});
+
+app.listen(3000, function () {
+  console.log('Started at port 3000');
+});
