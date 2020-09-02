@@ -13,6 +13,12 @@ app.use(cors());
 // Create a session-store to be used by both the express-session
 // middleware and the keycloak middleware.
 
+
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+  ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
+  mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
+  mongoURLLabel = "";
+
 var memoryStore = new session.MemoryStore();
 
 app.use(session({
@@ -38,21 +44,21 @@ app.use(keycloak.middleware({
 }));
 
 app.get('/service/public', function (req, res) {
-  res.json({message: 'public'});
+  res.json({ message: 'public' });
 });
 
 app.get('/service/secured', keycloak.protect('realm:user'), function (req, res) {
-  res.json({message: 'secured'});
+  res.json({ message: 'secured' });
 });
 
 app.get('/service/admin', keycloak.protect('realm:admin'), function (req, res) {
-  res.json({message: 'admin'});
+  res.json({ message: 'admin' });
 });
 
 app.use('*', function (req, res) {
   res.send('Not found!');
 });
-
-app.listen(3000, function () {
+//app.listen(port, ip);
+app.listen(port, function () {
   console.log('Started at port 3000');
 });
