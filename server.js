@@ -60,7 +60,7 @@ app.get('/service/admin', keycloak.protect('realm:admin'), function (req, res) {
 //});
 app.get('/', function (req, res) {
 
-  res.render('index.html');
+  res.send('Server is running!');
 
 });
 
