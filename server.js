@@ -55,9 +55,15 @@ app.get('/service/admin', keycloak.protect('realm:admin'), function (req, res) {
   res.json({ message: 'admin' });
 });
 
-app.use('*', function (req, res) {
-  res.send('Not found!');
+//app.use('*', function (req, res) {
+//  res.send('Not found!');
+//});
+app.get('/', function (req, res) {
+
+  res.render('index.html');
+
 });
+
 //app.listen(port, ip);
 app.listen(port, function () {
   console.log('Started at port 3000');
