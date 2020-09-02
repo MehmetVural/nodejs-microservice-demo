@@ -40,7 +40,7 @@ var keycloak = new Keycloak({
 
 app.use(keycloak.middleware({
   logout: '/logout',
-  admin: '/'
+  admin: '/admin'
 }));
 
 app.get('/service/public', function (req, res) {
@@ -66,5 +66,5 @@ app.get('/', function (req, res) {
 
 //app.listen(port, ip);
 app.listen(port, function () {
-  console.log('Started at port 3000');
+  console.log('Started at port %s', port);
 });
