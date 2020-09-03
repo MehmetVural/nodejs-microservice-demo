@@ -53,7 +53,8 @@ app.use(keycloak.middleware({
 // installed from the Keycloak web console.
 
 // APIS
-app.use("/workbc/api/v1", keycloak.protect('realm:admin'), require("./routes"));
+// keycloak.protect('realm:admin'),
+app.use("/workbc/api/v1", require("./routes"));
 
 /* Samples 
 app.get('/demo/public', function (req, res) {
