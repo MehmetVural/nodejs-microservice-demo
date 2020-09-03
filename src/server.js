@@ -73,9 +73,9 @@ app.get('/demo/admin', keycloak.protect('realm:admin'), function (req, res) {
 const mongoose = require('mongoose');
 //const environment = require('../config/environment');
 mongoDB_URL                 = "172.30.229.9:27017";
-mongoDB_database_user       = process.env.MONGODB_DATABASE_USER;
-mongoDB_database_password   = process.env.MONGODB_DATABASE_PASSWORD
-mongoDB_database_name       = process.env.MONGODB_DATABASE_NAME
+mongoDB_database_user       = process.env.MONGODB_USER;
+mongoDB_database_password   = process.env.MONGODB_PASSWORD
+mongoDB_database_name       = process.env.MONGODB_DATABASE
 const mongourl = "mongodb://" + mongoDB_database_user + ":" + mongoDB_database_password +"@" + mongoDB_URL + "/" + mongoDB_database_name;
 
 //mongoose.connect(mongourl, { useNewUrlParser: true });
