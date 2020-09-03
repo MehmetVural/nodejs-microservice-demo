@@ -300,7 +300,7 @@
           "name": "${DATABASE_SERVICE_NAME}"
         }
       }
-    },
+    },   
     {
       "kind": "DeploymentConfig",
       "apiVersion": "v1",
