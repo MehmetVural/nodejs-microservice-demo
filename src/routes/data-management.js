@@ -18,11 +18,6 @@ router.get("/clear",  DataManagementController.clear);
 //mongoDB_database_name       = process.env.MONGODB_DATABASE_NAME
 //const mongourl = "mongodb://" + mongoDB_database_user + ":" + mongoDB_database_password +"@" + mongoDB_URL + "/" + mongoDB_database_name;
 
-router.get("/connect", (req, res, next) => {
-    return res.status(200).send({
-        message: process.env.MONGODB_URL
-    });
-});
 
 //console.log(mongourl);
 

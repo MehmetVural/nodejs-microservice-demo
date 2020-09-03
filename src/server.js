@@ -7,19 +7,14 @@ var cors = require('cors');
 var app = express();
 app.use(bodyParser.json());
 
-
 // Enable CORS support
 app.use(cors());
 
 // Create a session-store to be used by both the express-session
 // middleware and the keycloak middleware.
 
-
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
   ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
-
-
-
 
 //mongoURLLabel = "";
 
@@ -78,7 +73,7 @@ app.get('/demo/admin', keycloak.protect('realm:admin'), function (req, res) {
 */
 
 app.get('/', function (req, res) {
-  res.send('Server is running!');
+  res.send(process.env.MONGODB_URL);
 });
 
 
