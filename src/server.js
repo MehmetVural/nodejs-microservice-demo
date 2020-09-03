@@ -71,9 +71,8 @@ app.get('/demo/admin', keycloak.protect('realm:admin'), function (req, res) {
 */
 
 app.get('/', function (req, res) {
-  res.send('Server is Running');
+  res.send(process.env.DATABASE_SERVICE_NAME);
 });
-
 
 //app.listen(port, ip);
 app.listen(port, function () {

@@ -439,7 +439,7 @@
       "displayName": "Name",
       "description": "The name assigned to all of the frontend objects defined in this template.",
       "required": true,
-      "value": "nodejs-mongo-persistent"
+      "value": "workbc-nodejs-microservice"
     },
     {
       "name": "NAMESPACE",
@@ -544,7 +544,7 @@
       "name": "DATABASE_NAME",
       "displayName": "Database Name",
       "required": true,
-      "value": "sampledb"
+      "value": "workbc"
     },
     {
       "name": "DATABASE_ADMIN_PASSWORD",
