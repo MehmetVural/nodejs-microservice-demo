@@ -12,15 +12,5 @@ router.get("/", (req, res, next) => {
 router.get("/populate", DataManagementController.populate);
 router.get("/clear",  DataManagementController.clear);
 
-//mongoDB_URL                 = process.env.MONGODB_URL;
-//mongoDB_database_user       = process.env.MONGODB_DATABASE-USER;
-//mongoDB_database_password   = process.env.MONGODB_DATABASE_PASSWORD
-//mongoDB_database_name       = process.env.MONGODB_DATABASE_NAME
-//const mongourl = "mongodb://" + mongoDB_database_user + ":" + mongoDB_database_password +"@" + mongoDB_URL + "/" + mongoDB_database_name;
-
-
-//console.log(mongourl);
-
-//router.delete("/clear", DataManagementController.clear);
 
 module.exports = router;

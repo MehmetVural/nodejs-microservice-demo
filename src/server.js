@@ -70,9 +70,8 @@ app.get('/demo/admin', keycloak.protect('realm:admin'), function (req, res) {
 //});
 */
 
-
 app.get('/', function (req, res) {
-  res.send(mongourl);
+  res.send("Server is Running");
 });
 
 //app.listen(port, ip);
