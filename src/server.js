@@ -1,10 +1,8 @@
 var express = require('express');
-
 var bodyParser = require('body-parser');
-
 var cors = require('cors');
-
 var app = express();
+
 app.use(bodyParser.json());
 
 // Enable CORS support
@@ -22,25 +20,25 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
 // const express = require("express");
 var Keycloak = require('keycloak-connect');
 var session = require('express-session');
-var memoryStore = new session.MemoryStore();
+//var memoryStore = new session.MemoryStore();
 
 const router = express.Router();
 
-app.use(session({
-    secret: '8d67fc9c-ddde-4b49-a78d-466279a10fdb',
-    resave: false,
-    saveUninitialized: true,
-    store: memoryStore
-}));
+//app.use(session({
+//    secret: '8d67fc9c-ddde-4b49-a78d-466279a10fdb',
+//    resave: false,
+//    saveUninitialized: true,
+//    store: memoryStore
+//}));
 
-var keycloak = new Keycloak({
-    store: memoryStore
-});
+//var keycloak = new Keycloak({
+//    store: memoryStore
+//});
 
-app.use(keycloak.middleware({
-    logout: '/logout',
-    admin: '/admin'
-}));
+//app.use(keycloak.middleware({
+//    logout: '/logout',
+//    admin: '/admin'
+//}));
 //////
 
 
@@ -52,7 +50,7 @@ app.use(keycloak.middleware({
 
 // APIS
 // keycloak.protect('realm:admin'),
-app.use("/workbc/api/v1", require("./routes"));
+//app.use("/workbc/api/v1", require("./routes"));
 
 /* Samples 
 app.get('/demo/public', function (req, res) {
@@ -73,7 +71,7 @@ app.get('/demo/admin', keycloak.protect('realm:admin'), function (req, res) {
 */
 
 app.get('/', function (req, res) {
-  res.send(process.env.MONGODB_URL);
+  res.send('Server is Running');
 });
 
 
