@@ -89,7 +89,7 @@ mongoose.Promise = global.Promise;
 
 
 app.get('/', function (req, res) {
-  res.send("Server is running");
+  res.send(mongourl);
 });
 
 //app.listen(port, ip);
