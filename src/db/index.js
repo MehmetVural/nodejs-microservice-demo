@@ -6,10 +6,10 @@ mongoDB_name       = process.env.MONGODB_DATBASE
 
 // Openshift config
 mongoDB_URL                 = "172.30.229.9:27017";
-//const mongourl = "mongodb://" + mongoDB_user + ":" + mongoDB_password +"@" + mongoDB_URL + "/" + mongoDB_name;
+const mongourl = "mongodb://" + mongoDB_user + ":" + mongoDB_password +"@" + mongoDB_URL + "/" + mongoDB_name;
 // Local Debug Config
 //mongoDB_URL                 = "127.0.0.1:27017"; //DEV
-const mongourl = "mongodb://" + mongoDB_URL + "/" + mongoDB_name; //DEV
+//const mongourl = "mongodb://" + mongoDB_URL + "/" + mongoDB_name; //DEV
 
 //console.log(mongourl);
 //mongoose.connect(mongourl, { useNewUrlParser: true });
