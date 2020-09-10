@@ -25,10 +25,14 @@ exports.createInBatch = async restaurants => {
 
 exports.readAll = async () => {
   try {
-    return await Restaurant.find({});
-    
+    //return await Restaurant.find({});
+    return res.status(500).json({
+      message: err
+      //message: "Error when trying to Read All Restaurant."
+    });
   } catch (err) {
-    throw err;
+    
+    throw err; 
   }
 };
 

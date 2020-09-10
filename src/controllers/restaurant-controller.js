@@ -180,11 +180,10 @@ exports.createInBatch = async (req, res, next) => {
 exports.readAll = async (req, res, next) => {
   try {
     
-    //const restaurants = await RestaurantDAO.readAll();
+    const restaurants = await RestaurantDAO.readAll();
     
     return res.status(200).json({
-        message: "ReadAll()"
-      //restaurants
+        restaurants
     });
   } catch (err) {
     debug(err);
