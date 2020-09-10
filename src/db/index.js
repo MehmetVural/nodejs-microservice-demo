@@ -13,7 +13,7 @@ const mongourl = "mongodb://" + mongoDB_user + ":" + mongoDB_password +"@" + mon
 
 //console.log(mongourl);
 //mongoose.connect(mongourl, { useNewUrlParser: true });
-mongoose.connect(mongourl, { useUnifiedTopology: true });
+mongoose.connect(mongourl, { useNewUrlParser: true });
 
 //mongoose.connect('mongodb+srv://localhost:27017/test', { useNewUrlParser: true });
 //var db = mongoose.connection;
