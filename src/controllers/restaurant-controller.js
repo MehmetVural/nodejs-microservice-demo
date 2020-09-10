@@ -188,8 +188,8 @@ exports.readAll = async (req, res, next) => {
     debug(err);
 
     return res.status(500).json({
-      message: err
-      //message: "Error when trying to Read All Restaurant."
+      //message: err
+      message: "Error when trying to Read All Restaurant."
     });
   }
 };
