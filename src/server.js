@@ -23,10 +23,13 @@ const router = express.Router()
 // Additional configuration is read from keycloak.json file
 // installed from the Keycloak web console.
 // const express = require("express");
+
+/*
 var Keycloak = require('keycloak-connect');
 var session = require('express-session');
 var memoryStore = new session.MemoryStore();
-app.use(session({
+
+router.use(session({
     secret: '8d67fc9c-ddde-4b49-a78d-466279a10fdb',
     resave: false,
     saveUninitialized: true,
@@ -37,16 +40,19 @@ var keycloak = new Keycloak({
     store: memoryStore
 });
 
+//const mongoose = require("./config/keycloak-config");
+
 app.use(keycloak.middleware({
     logout: '/logout',
     admin: '/admin'
 }));
+
+*/
 // keycloak.protect('realm:admin'),
 //// END KEYCLOAK
 
-
-// APIS
-app.use("/workbc/api/v1", keycloak.protect('realm:admin'), require("./routes"));
+// APIS keycloak.protect('realm:admin'),
+app.use("/workbc/api/v1", require("./routes"));
 
 app.get('/', function (req, res) {
   res.send("Server is Running");
