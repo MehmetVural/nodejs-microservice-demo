@@ -26,7 +26,7 @@ exports.createInBatch = async restaurants => {
 exports.readAll = async () => {
   try {
     //return await Restaurant.find({});
-    return "Server is Running";
+    return "Restaurant is Running";
     
   } catch (err) {
     throw err;
