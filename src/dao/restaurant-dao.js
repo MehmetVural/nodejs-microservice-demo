@@ -27,7 +27,7 @@ exports.readAll = async () => {
   try {
     //return await Restaurant.find({});
     return res.status(500).json({
-      message: err
+      message: "DAO.ReadAll"
       //message: "Error when trying to Read All Restaurant."
     });
   } catch (err) {
