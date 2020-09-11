@@ -25,14 +25,9 @@ exports.createInBatch = async restaurants => {
 
 exports.readAll = async () => {
   try {
-    //return await Restaurant.find({});
-    return res.status(500).json({
-      message: "DAO.ReadAll"
-      //message: "Error when trying to Read All Restaurant."
-    });
+    return await Restaurant.find({});
   } catch (err) {
-    
-    throw err; 
+    throw err;
   }
 };
 
