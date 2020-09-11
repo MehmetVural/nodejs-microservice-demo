@@ -27,8 +27,7 @@ exports.readAll = async () => {
   try {
     return await Restaurant.find({});
   } catch (err) {
-    return err;
-    //throw err;
+    throw err;
     
   }
 };
