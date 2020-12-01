@@ -5,7 +5,7 @@ require("dotenv").config({
 
 const config = {
   development: {
-    mongoURL: 'mongodb://localhost:27017/bon-appetit', //process.env.DATABASE_URL,
+    mongoURL: 'mongodb://172.25.111.98:27017/mongodb', //process.env.DATABASE_URL,
     port: 3001, //process.env.PORT
   }
 };

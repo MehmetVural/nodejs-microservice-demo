@@ -52,7 +52,7 @@ app.use(keycloak.middleware({
 //// END KEYCLOAK
 
 // APIS keycloak.protect('realm:admin'),
-app.use("/workbc/api/v1", require("./routes"));
+app.use("/api/v1", require("./routes"));
 
 app.get('/', function (req, res) {
   res.send("Server is Running");
