@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/", (req, res, next) => {
   return res.status(200).send({
-    message: "The API is UP && RUNNING!"
+    message: "The API is UP && RUNNING! v.1"
   });
 });
 
