@@ -6,13 +6,13 @@ mongoDB_name       = process.env.MONGODB_DATBASE
 
 // Openshift config
 //mongoDB_URL                 = "172.30.34.74:27017";
-mongoDB_user                  = "user"
+mongoDB_user                  = "username"
 mongoDB_password              = "password"
-mongoDB_name                  = "mongodb"; 
-mongoDB_URL                   = "172.25.111.98:27017";
+mongoDB_name                  = "workbc"; 
+mongoDB_URL                   = "172.25.201.212:27017";
 //mongoDB_URL                   = "127.0.0.1:27017";
 const mongourl = "mongodb://" + mongoDB_user + ":" + mongoDB_password +"@" + mongoDB_URL + "/" + mongoDB_name;
-//const mongourl = "mongodb://172.25.111.98:27017/" + mongoDB_name;
+//const mongourl = "mongodb://127.0.0.1:27017/" + mongoDB_name;
 //const mongourl = "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false"
 
 // Local Debug Config
